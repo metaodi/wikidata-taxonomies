@@ -1,0 +1,2 @@
+rdflib==4.2.2
+anytree==2.4.3
