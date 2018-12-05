@@ -8,7 +8,7 @@ virtualenv pyenv
 source pyenv/bin/activate
 
 # install dependencies
-pip install
+pip install -r requirements.txt
 
 # if you want to export the graphs as image, you need graphviz
 sudo apt-get install graphviz
