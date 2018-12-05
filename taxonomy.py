@@ -19,7 +19,6 @@ namespaces = {
 g = Graph()
 
 g.parse("http://cv.iptc.org/newscodes/mediatopic/?format=rdfxml&lang=de")
-print(len(g))
 
 # get top concepts with 2 levels down (3 levels total)
 ref = next(g.subjects(RDF.type, SKOS.ConceptScheme))
@@ -41,10 +40,15 @@ for pre, fill, node in RenderTree(iptc):
 # user need taxonomy
 # extract from ASO, swissinfo site, facebook
 
-needs = Node("User needs") 
-out = Node("Auswandern", parent=needs) 
-Node("Auswandern in einen EU/EFTA Staat", parent=out) 
-Node("Stellensuche im Ausland", parent=out) 
+needs = Node(u"User needs") 
+out = Node(u"Auswandern", parent=needs) 
+Node(u"Auswandern in einen EU/EFTA Staat", parent=out) 
+work = Node(u"Arbeiten", parent=out) 
+Node(u"Stellensuche im Ausland", parent=work) 
+Node(u"Bewerbung", parent=work) 
+Node(u"Arbeitsmarkt", parent=work) 
+Node(u"Berufspraktika und Trainees", parent=work) 
+Node(u"Selbstständig Erwerbende", parent=work) 
 
 
 live = Node(u"Leben im Ausland", parent=needs) 
@@ -112,7 +116,9 @@ Node(u"Schweizer Fahrausweis", parent=faq)
 Node(u"Fundsachen", parent=faq)
 Node(u"Zoll", parent=faq)
 Node(u"Schweizer Fernsehen und Radio", parent=faq)
-
+Node(u"Geburt, Ehe, Todesfall", parent=faq)
+Node(u"Öffentlicher Verkehr", parent=faq)
+Node(u"Individualverkehr", parent=faq)
 
 back = Node(u"Rückwanderung in die Schweiz", parent=needs) 
 Node(u"Jobsuche", parent=back)
@@ -120,8 +126,30 @@ Node(u"E.O. Kilcher-Fonds", parent=back)
 
 
 edu = Node(u"Ausbildung in der Schweiz", parent=needs) 
+Node(u"Studieren in der Schweiz", parent=edu)
+Node(u"Öffentliche Schulen", parent=edu)
+Node(u"Bildungssystem", parent=edu)
+Node(u"Forschungstrends", parent=edu)
+
+
+facts = Node(u"Fakten", parent=needs)
+Node(u"Kennzahlen", parent=facts)
+Node(u"Wetter/Klima", parent=facts)
+Node(u"Geschichte", parent=facts)
+Node(u"Währung", parent=facts)
+Node(u"Sprachen", parent=facts)
+
+
+culture = Node(u"Kultur/Reisen", parent=needs)
+Node(u"Reisen", parent=culture)
+Node(u"Brauchtum und Festivals", parent=culture)
+Node(u"Freizeitangebote", parent=culture)
+Node(u"Musik", parent=culture)
+Node(u"Theater", parent=culture)
+Node(u"Architektur", parent=culture)
+Node(u"Film", parent=culture)
+Node(u"Kulturförderung", parent=culture)
 
 for pre, fill, node in RenderTree(needs):
     print("%s%s" % (pre, node.name))
-
-DotExporter(needs).to_picture("needs.png")
+# DotExporter(needs).to_picture("needs.png")
