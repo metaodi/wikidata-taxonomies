@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from anytree import Node, RenderTree
+from anytree import Node, RenderTree, ContRoundStyle
 from anytree.exporter import DotExporter
 
 from pprint import pprint
@@ -118,6 +118,6 @@ Node(u"Architektur", parent=culture)
 Node(u"Film", parent=culture)
 Node(u"Kulturförderung", parent=culture)
 
-for pre, fill, node in RenderTree(needs):
+for pre, fill, node in RenderTree(needs, style=ContRoundStyle()):
     print("%s%s" % (pre, node.name))
 # DotExporter(needs).to_picture("needs.png")

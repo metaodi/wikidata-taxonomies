@@ -19,9 +19,8 @@ sudo apt-get install graphviz
 
 
 ```bash
-source pyenv/bin/activate
-python iptc.py
-python user_needs.py
+make iptc
+make needs
 ```
 
-The library used can generate `.dot` files based on a tree, i.e. we can visualize the tree using `graphviz`
+The library can generate `.dot` files based on a tree, i.e. we can visualize the tree using `graphviz`
