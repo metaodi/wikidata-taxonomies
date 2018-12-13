@@ -17,16 +17,12 @@ sudo apt-get install graphviz
 
 ## Usage
 
-
-```bash
-make iptc
-make needs
-```
-
-The library can generate `.dot` files based on a tree, i.e. we can visualize the tree using `graphviz`
-
-There are jupyter notebooks as well:
+Run the jupyter notebooks:
 
 ```
 ./_notebook/bin/jupyter notebook
 ```
+
+
+IPTC notebook: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/metaodi/wikidata-taxonomies/master?filepath=IPTC%20Taxonomy.ipynb)
+User needs notebook: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/metaodi/wikidata-taxonomies/master?filepath=User%20Needs.ipynb)
