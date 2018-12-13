@@ -28,6 +28,7 @@ def buildIPTCTree(ref):
                 if len(g.preferredLabel(subsub_ref)) > 0:
                     subsub = generateNode(subsub_ref, sub)
     sys.stdout.flush()
+    print("")
     return iptc
 
 def generateNode(ref, parent):
